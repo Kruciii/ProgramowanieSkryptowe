@@ -1,11 +1,12 @@
 
+import math
 class ZaMalaError(Exception):
     pass
 #Zadanie 7
 def liczkwadratiszescian(a):
     try:
-        k = int(a)^2
-        s = int(a)^2
+        k = int(a)**2
+        s = int(a)**2
     except:
         print("Nieporawnie podana liczba")
     else:
@@ -59,4 +60,21 @@ def poleobwod(a,b):
                 return 2*a+2*b
             else:
                 print("nie ma takiej opcji")
-                
+#Zadanie 12
+def poleobwod():
+    while(True):
+        try:
+            r = input("Prosze podac promien")
+            r = float(r)
+            w = input("obwod - o promien - p")
+            w = w.lower()
+            if(r<0):
+                raise ZaMalaError
+        except ZaMalaError:
+            print("podano liczbe ujemna")
+        except:
+            print("prosze podac liczbe")
+        else:
+            if()
+                    
+                    
