@@ -1,4 +1,6 @@
 import random
+from sys import exit
+import math
 #Zad 1
 #a
 ''' Napisz funkcje usunpodzielne5(a) oraz liczbadodatnich(a), które odpowiadają za
@@ -57,4 +59,36 @@ with open("liczby.txt","a") as f:
         if((i+1)%10==0):
             f.write("\n")
         
+#Zadanie 2
+class Kolo:
+    def __init__(self,R):
+        if(R<=0): exit(1)
+        self.R =R
+        
+    def pole(self):
+        return math.pi *self.R**2
+    
+    def obwod(self):
+        return 2*math.pi*self.R
+    
+    def __str__(self):
+        return (f"To jest kółko. Ma ono pole {self.pole()} oraz obwod {self.obwod()}")
+    
+class Polkole(Kolo):
+    def __init__(self,R):
+        super().__init__(R)
+        
+    def pole(self):
+        return super().pole()/2
+    
+    def obwod(self):
+        return super().obwod()/2 + 2*self.R
+    
+    def __str__(self):
+        return (f"To jest Polkole. Ma ono pole {self.pole()} oraz obwod {self.obwod()}")
+
+kolko = Kolo(2)
+polkolko = Polkole(4)
+print(kolko)
+print(polkolko)
     
