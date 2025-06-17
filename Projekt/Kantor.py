@@ -8,7 +8,7 @@ class Kantor:
         self.okno = tkinter.Tk()
         self.okno.title("Kantor")
         self.okno.geometry("400x500")
-        self.okno.config(background="lightblue")
+        self.okno.config(background="lightpink")
         self.build()
         self.USD = 4.0
         self.EUR = 4.5
@@ -52,7 +52,7 @@ class Kantor:
 
 
     def build(self):
-        self.e1 = tkinter.Label(self.okno, text="Witaj w kantorze!", bg="blue")
+        self.e1 = tkinter.Label(self.okno, text="Witaj w kantorze!", bg="white")
         self.e1.grid(row=0, column=0, pady=10)
         self.e2 = tkinter.Label(self.okno,text= "Wpisz walute w PLN")
         self.e2.grid(row = 1,column = 1,sticky="W")
