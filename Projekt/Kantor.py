@@ -7,7 +7,7 @@ class Kantor:
     def __init__(self):
         self.okno = tkinter.Tk()
         self.okno.title("Kantor")
-        self.okno.geometry("400x500")
+        self.okno.geometry("300x300")
         self.okno.config(background="lightblue")
         self.build()
         self.USD = 4.0
