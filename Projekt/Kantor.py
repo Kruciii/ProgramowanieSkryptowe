@@ -23,7 +23,7 @@ class Kantor:
        
     def oblicz(self):
         try:
-            x = float(self.p1.get())
+            x = float(self.p1.get().replace(",","."))
             if(x<=0):
                 raise UjemnaError
             
