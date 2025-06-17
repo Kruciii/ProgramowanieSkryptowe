@@ -7,10 +7,9 @@ class Kantor:
     def __init__(self):
         self.okno = tkinter.Tk()
         self.okno.title("Kantor")
-        self.okno.geometry("300x200")
+        self.okno.geometry("400x700")
         self.okno.config(background="lightblue")
         self.build()
-        self.okno.mainloop()
         self.USD = 4.0
         self.EUR = 4.5
         self.GBP = 5.0
@@ -19,21 +18,22 @@ class Kantor:
         self.RUB = 0.05
         self.JPY = 0.03
         self.AUD = 2.8
+        self.okno.mainloop()
+
+       
     def oblicz(self):
         try:
+            x = self.p1.get()
+            if(isinstance(x,float) or isinstance(x,int)):
+                x = float(x)
+            elif(isinstance(x,str)):
             
             if(x<=0):
                 raise UjemnaError
+            
             else:
                 x = float(self.p1.get())
-        except UjemnaError:
-            messagebox.showerror("Błąd wartośći","Proszę podać liczbę dodatnią")
-        except TypeError:
-            messagebox.showerror("Błąd typu","Proszę podać dane będące liczbą")
-        except Exception as e:
-            messagebox.showerror("Inny błąd",e)
-        else:
-            #usuwanie
+            
             self.p2.delete(0,tkinter.END)
             self.p3.delete(0,tkinter.END)
             self.p4.delete(0,tkinter.END)
@@ -42,15 +42,22 @@ class Kantor:
             self.p7.delete(0,tkinter.END)
             self.p8.delete(0,tkinter.END)
             self.p9.delete(0,tkinter.END)
-            self.p2.insert(0,x/self.USD)
-            self.p3.insert(0,x/self.EUR)
-            self.p4.insert(0,x/self.GBP)
-            self.p5.insert(0,x/self.CHF)
-            self.p6.insert(0,x/self.CZK)
-            self.p7.insert(0,x/self.RUB)
-            self.p8.insert(0,x/self.JPY)
-            self.p9.insert(0,x/self.AUD)
-        
+            self.p2.insert(0,round(x/self.USD,2))
+            self.p3.insert(0,round(x/self.EUR,2))
+            self.p4.insert(0,round(x/self.GBP,2))
+            self.p5.insert(0,round(x/self.CHF,2))
+            self.p6.insert(0,round(x/self.CZK,2))
+            self.p7.insert(0,round(x/self.RUB,2))
+            self.p8.insert(0,round(x/self.JPY,2))
+            self.p9.insert(0,round(x/self.AUD,2))
+        except UjemnaError:
+            messagebox.showerror("Błąd wartośći","Proszę podać liczbę dodatnią")
+        except TypeError:
+            messagebox.showerror("Błąd typu","Proszę podać dane będące liczbą")
+        except Exception as e:
+            messagebox.showerror("Inny błąd",e)
+
+
     def build(self):
         self.e1 = tkinter.Label(self.okno, text="Witaj w kantorze!", bg="blue")
         self.e1.grid(row=0, column=0, pady=10)
@@ -97,7 +104,7 @@ class Kantor:
         
         self.b1 = tkinter.Button(self.okno, width = 10)
         self.b1["text"] = "oblicz"
-        self.b1["command"] = self.oblicz()
+        self.b1["command"] = self.oblicz
         self.b1.grid(row = 10,column = 1)
         self.b2 = tkinter.Button(self.okno, width=10)
         self.b2["text"] = "zamknij"
