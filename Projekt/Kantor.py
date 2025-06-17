@@ -23,11 +23,9 @@ class Kantor:
        
     def oblicz(self):
         try:
-            x = self.p1.get()
+            x = float(self.p1.get())
             if(x<=0):
                 raise UjemnaError
-            else:
-                x = float(self.p1.get())
             
             self.p2.delete(0,tkinter.END)
             self.p3.delete(0,tkinter.END)
