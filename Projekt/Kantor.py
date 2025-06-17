@@ -24,13 +24,8 @@ class Kantor:
     def oblicz(self):
         try:
             x = self.p1.get()
-            if(isinstance(x,float) or isinstance(x,int)):
-                x = float(x)
-            elif(isinstance(x,str)):
-            
             if(x<=0):
                 raise UjemnaError
-            
             else:
                 x = float(self.p1.get())
             
@@ -54,6 +49,8 @@ class Kantor:
             messagebox.showerror("Błąd wartośći","Proszę podać liczbę dodatnią")
         except TypeError:
             messagebox.showerror("Błąd typu","Proszę podać dane będące liczbą")
+        except ValueError:
+            messagebox.showerror("Błąd wartości","Proszę podać liczbę")
         except Exception as e:
             messagebox.showerror("Inny błąd",e)
 
