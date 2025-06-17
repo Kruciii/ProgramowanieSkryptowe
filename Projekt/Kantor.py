@@ -54,55 +54,62 @@ class Kantor:
     def build(self):
         self.e1 = tkinter.Label(self.okno, text="Witaj w kantorze!", bg="white")
         self.e1.grid(row=0, column=0, pady=10)
-        self.e2 = tkinter.Label(self.okno,text= "Wpisz walute w PLN")
-        self.e2.grid(row = 1,column = 1,sticky="W")
-        self.e3 = tkinter.Label(self.okno,text= "USD")
-        self.e3.grid(row = 2,column = 1,sticky="W")
-        self.e4 = tkinter.Label(self.okno,text= "EUR")
-        self.e4.grid(row = 3,column = 1,sticky="W")
-        self.e5 = tkinter.Label(self.okno,text= "GBP")
-        self.e5.grid(row = 4,column = 1,sticky="W")
-        self.e6 = tkinter.Label(self.okno,text= "CHF")
-        self.e6.grid(row = 5,column = 1,sticky="W")
-        self.e7 = tkinter.Label(self.okno,text= "CZK")
-        self.e7.grid(row = 6,column = 1,sticky="W")
-        self.e8 = tkinter.Label(self.okno,text= "RUB")
-        self.e8.grid(row = 7,column = 1,sticky="W")
-        self.e9 = tkinter.Label(self.okno,text= "JPY")
-        self.e9.grid(row = 8,column = 1,sticky="W")
-        self.e10 = tkinter.Label(self.okno,text= "AUD")
-        self.e10.grid(row = 9,column = 1,sticky="W")
+        self.e2 = tkinter.Label(self.okno, text="Wpisz walute w PLN")
+        self.e2.grid(row=1, column=1, sticky="W", pady=1)
+        self.e3 = tkinter.Label(self.okno, text="USD")
+        self.e3.grid(row=2, column=1, sticky="W", pady=1)
+        self.e4 = tkinter.Label(self.okno, text="EUR")
+        self.e4.grid(row=3, column=1, sticky="W", pady=1)
+        self.e5 = tkinter.Label(self.okno, text="GBP")
+        self.e5.grid(row=4, column=1, sticky="W", pady=1)
+        self.e6 = tkinter.Label(self.okno, text="CHF")
+        self.e6.grid(row=5, column=1, sticky="W", pady=1)
+        self.e7 = tkinter.Label(self.okno, text="CZK")
+        self.e7.grid(row=6, column=1, sticky="W", pady=1)
+        self.e8 = tkinter.Label(self.okno, text="RUB")
+        self.e8.grid(row=7, column=1, sticky="W", pady=1)
+        self.e9 = tkinter.Label(self.okno, text="JPY")
+        self.e9.grid(row=8, column=1, sticky="W", pady=1)
+        self.e10 = tkinter.Label(self.okno, text="AUD")
+        self.e10.grid(row=9, column=1, sticky="W", pady=1)
         
         
         
         self.p1 = tkinter.Entry(self.okno,width=10)
         self.p1.grid(row =1, column =0,sticky = "W")
-        self.p2 = tkinter.Text(self.okno, width=10, height=1, wrap="word")
+        self.p2 = tkinter.Text(self.okno, width=10, height=1, wrap="word", pady=1)
         self.p2.grid(row=2, column=0, sticky="W")
-        self.p3 = tkinter.Text(self.okno, width=10, height=1, wrap="word")
+        self.p3 = tkinter.Text(self.okno, width=10, height=1, wrap="word", pady=1)
         self.p3.grid(row=3, column=0, sticky="W")
-        self.p4 = tkinter.Text(self.okno, width=10, height=1, wrap="word")
+        self.p4 = tkinter.Text(self.okno, width=10, height=1, wrap="word", pady=1)
         self.p4.grid(row=4, column=0, sticky="W")
-        self.p5 = tkinter.Text(self.okno, width=10, height=1, wrap="word")
+        self.p5 = tkinter.Text(self.okno, width=10, height=1, wrap="word", pady=1)
         self.p5.grid(row=5, column=0, sticky="W")
-        self.p6 = tkinter.Text(self.okno, width=10, height=1, wrap="word")
+        self.p6 = tkinter.Text(self.okno, width=10, height=1, wrap="word", pady=1)
         self.p6.grid(row=6, column=0, sticky="W")
-        self.p7 = tkinter.Text(self.okno, width=10, height=1, wrap="word")
+        self.p7 = tkinter.Text(self.okno, width=10, height=1, wrap="word", pady=1)
         self.p7.grid(row=7, column=0, sticky="W")
-        self.p8 = tkinter.Text(self.okno, width=10, height=1, wrap="word")
+        self.p8 = tkinter.Text(self.okno, width=10, height=1, wrap="word", pady=1)
         self.p8.grid(row=8, column=0, sticky="W")
-        self.p9 = tkinter.Text(self.okno, width=10, height=1, wrap="word")
+        self.p9 = tkinter.Text(self.okno, width=10, height=1, wrap="word", pady=1)
         self.p9.grid(row=9, column=0, sticky="W")
         
         
-        self.b1 = tkinter.Button(self.okno, width = 10)
-        self.b1["text"] = "oblicz"
+        self.b1 = tkinter.Button(self.okno, width=10)
+        self.b1["text"] = "Oblicz"
         self.b1["command"] = self.oblicz
-        self.b1.grid(row = 10,column = 1)
+        self.b1.grid(row=10, column=0, padx=10, pady=10)  # Dodany padding
+
         self.b2 = tkinter.Button(self.okno, width=10)
-        self.b2["text"] = "zamknij"
+        self.b2["text"] = "Zamknij"
         self.b2["command"] = self.okno.destroy
-        self.b2.grid(row=10, column=2)
-   
+        self.b2.grid(row=10, column=1, padx=10, pady=10)  # Dodany padding
+        
+        self.b3 = tkinter.Button(self.okno, width=6)
+        self.b3.grid(row=10, column=2, sticky="E", padx=10, pady=10)
+        self.b3["text"] = "Pomoc"
+        self.b3["command"] = lambda: messagebox.showinfo("Pomoc", "Wprowadź kwotę w PLN, a następnie naciśnij 'Oblicz', aby uzyskać przeliczone wartości w innych walutach.")
+        
+        
             
 k=Kantor()
