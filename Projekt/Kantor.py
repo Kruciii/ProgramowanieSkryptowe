@@ -7,7 +7,7 @@ class Kantor:
     def __init__(self):
         self.okno = tkinter.Tk()
         self.okno.title("Kantor")
-        self.okno.geometry("400x700")
+        self.okno.geometry("400x500")
         self.okno.config(background="lightblue")
         self.build()
         self.USD = 4.0
@@ -44,13 +44,11 @@ class Kantor:
             self.p8.insert(0,round(x/self.JPY,2))
             self.p9.insert(0,round(x/self.AUD,2))
         except UjemnaError:
-            messagebox.showerror("Błąd wartośći","Proszę podać liczbę dodatnią")
-        except TypeError:
-            messagebox.showerror("Błąd typu","Proszę podać dane będące liczbą")
+            messagebox.showerror("Błąd wartości","Proszę podać liczbę dodatnią")
         except ValueError:
             messagebox.showerror("Błąd wartości","Proszę podać liczbę")
         except Exception as e:
-            messagebox.showerror("Inny błąd",e)
+            messagebox.showerror("Inny błąd",str(e))
 
 
     def build(self):
