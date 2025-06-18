@@ -3,7 +3,10 @@ from tkinter import messagebox
 
 class UjemnaError(Exception):
     pass
-
+class ZaDuzaError(Exception):
+    pass
+class PustePoleError(Exception):
+    pass
 class Kantor:
     def __init__(self):
         self.okno = tkinter.Tk()
@@ -11,14 +14,14 @@ class Kantor:
         self.okno.geometry("300x300")
         self.okno.config(background="lightpink")
         self.build()
-        self.USD = 4.0
-        self.EUR = 4.5
+        self.USD = 3.72
+        self.EUR = 4.27
         self.GBP = 5.0
-        self.CHF = 4.2
-        self.CZK = 0.18
-        self.RUB = 0.05
-        self.JPY = 0.03
-        self.AUD = 2.8
+        self.CHF = 4.6
+        self.CZK = 0.17
+        self.RUB = 0.047
+        self.JPY = 0.026
+        self.AUD = 2.41
         self.okno.mainloop()
 
        
@@ -28,14 +31,14 @@ class Kantor:
             x = self.p1.get().strip()
             
             if not x:  # Sprawdzenie, czy pole jest puste
-                raise ValueError("Pole nie może być puste")
+                raise PustePoleError
             
             x = float(x.replace(",", "."))  # Konwersja na liczbę
             if x <= 0:
                 raise UjemnaError
             
             if x > 10**10:  # Sprawdzenie, czy liczba nie jest za duża
-                raise ValueError("Podana liczba jest za duża")
+                raise ZaDuzaError
             # Odblokowanie pól tekstowych
             for i in (self.p2, self.p3, self.p4, self.p5, self.p6, self.p7, self.p8, self.p9):
                 i.config(state="normal")
@@ -65,11 +68,17 @@ class Kantor:
                 i.config(state="disabled")
 
         except UjemnaError:
-            messagebox.showerror("Błąd wartości", "Proszę podać liczbę dodatnią")
+            messagebox.showerror("Błąd wartości", "Proszę podać liczbę dodatnią!")
             self.p1.delete(0, tkinter.END)  
         except ValueError as ve:
-            messagebox.showerror("Błąd wartości", str(ve))
+            messagebox.showerror("Błąd wartości","Proszę podać poprawną liczbę a nie text!")
             self.p1.delete(0, tkinter.END)  
+        except ZaDuzaError:
+            messagebox.showerror("Błąd wartości", "Wartość jest zbyt duża!")
+            self.p1.delete(0, tkinter.END)
+        except PustePoleError:
+            messagebox.showerror("Błąd wartości", "Pole nie może być puste!")
+            self.p1.delete(0, tkinter.END)
         except Exception as e:
             messagebox.showerror("Inny błąd", str(e))
 
@@ -137,7 +146,7 @@ class Kantor:
         self.b3 = tkinter.Button(self.okno, width=6)
         self.b3.grid(row=10, column=2, sticky="E", padx=10, pady=10)
         self.b3["text"] = "Pomoc"
-        self.b3["command"] = lambda: messagebox.showinfo("Pomoc", "Wprowadź kwotę w PLN, a następnie naciśnij 'calculate', aby uzyskać przeliczone wartości w innych walutach.")
+        self.b3["command"] = lambda: messagebox.showinfo("Pomoc", "Wprowadź kwotę w PLN, a następnie naciśnij 'Oblicz', aby uzyskać przeliczone wartości w innych walutach.")
         
         
             
